@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Your Landing Page</title>
+  <title>Knekt Landing Page</title>
   <style>
     body {
       margin: 0;
@@ -99,7 +99,7 @@
     .video-section {
       display: flex;
       justify-content: center;
-      margin: 3rem 2rem;
+      margin: 4rem 2rem;
     }
 
     .video-section video {
@@ -107,9 +107,51 @@
       border-radius: 1rem;
       box-shadow: 0 0 30px rgba(0,0,0,0.6);
     }
+
+    /* Footer Styling */
+    .footer {
+      background-color: #1b1b2f;
+      padding: 2rem;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      color: #ccc;
+    }
+
+    .footer-section {
+      flex: 1 1 250px;
+      margin: 1rem;
+    }
+
+    .footer h3 {
+      color: white;
+      margin-bottom: 1rem;
+    }
+
+    .footer a {
+      display: block;
+      color: #ccc;
+      text-decoration: none;
+      margin-bottom: 0.5rem;
+      font-size: 0.95rem;
+    }
+
+    .footer a:hover {
+      color: #fff;
+    }
+
+    .footer-bottom {
+      text-align: center;
+      padding-top: 1rem;
+      border-top: 1px solid #333;
+      font-size: 0.9rem;
+      color: #aaa;
+    }
   </style>
 </head>
 <body>
+
   <nav class="navbar">
     <div class="logo">🚀 Knekt</div>
     <ul>
@@ -131,16 +173,44 @@
     <button class="cta-button">Start for Free</button>
 
     <div class="mockup-img">
-      <img src="logo.png" alt="Mockup" />
+      <img src="knekt-logo.png" alt="Knekt Logo" />
     </div>
   </section>
 
-  <!-- Video Section -->
   <section class="video-section">
     <video autoplay muted loop playsinline>
-      <source src="preview.mp4" type="video/mp4" />
+      <source src="home.mp4" type="video/mp4" />
       Your browser does not support the video tag.
     </video>
   </section>
+
+  <!-- Footer Section -->
+  <footer class="footer">
+    <div class="footer-section">
+      <h3>Knekt</h3>
+      <p>Empowering collaboration for innovators, developers, and dreamers. Let’s build together.</p>
+    </div>
+
+    <div class="footer-section">
+      <h3>Quick Links</h3>
+      <a href="#">Home</a>
+      <a href="#">Create Team</a>
+      <a href="#">Join Team</a>
+      <a href="#">Blogs</a>
+    </div>
+
+    <div class="footer-section">
+      <h3>Support</h3>
+      <a href="#">Contact Us</a>
+      <a href="#">FAQs</a>
+      <a href="#">Privacy Policy</a>
+      <a href="#">Terms & Conditions</a>
+    </div>
+
+    <div class="footer-bottom">
+      &copy; 2025 Knekt. All rights reserved.
+    </div>
+  </footer>
+
 </body>
 </html>
