@@ -1,5 +1,9 @@
 # Knekt - Connect with Mentors & Find Projects
+shing
 
+## Getting Started
+
+### Prerequisites
 Knekt is a web application that connects developers with mentors and helps them find projects to collaborate on.
 
 ## Features
@@ -23,11 +27,7 @@ Knekt is a web application that connects developers with mentors and helps them 
   - Express
   - MongoDB
   - JWT for authentication
-  - bcrypt for password hashing
-
-## Getting Started
-
-### Prerequisites
+  - bcrypt for password ha
 
 - Node.js (v14 or higher)
 - npm or yarn
