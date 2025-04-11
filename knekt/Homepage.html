@@ -2,193 +2,145 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Home Page</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Your Landing Page</title>
   <style>
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
-
     body {
-      font-family: Arial, sans-serif;
-      display: flex;
-      flex-direction: column;
-      height: 100vh;
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(to right, #0f0c29, #302b63, #24243e);
+      color: white;
     }
 
     .navbar {
-      background-color: #333;
-      color: white;
-      padding: 15px 30px;
       display: flex;
       justify-content: space-between;
       align-items: center;
+      padding: 1.5rem 2rem;
     }
 
-    .navbar-left {
-      display: flex;
-      align-items: center;
-      gap: 30px;
-    }
-
-    .logo {
-      font-size: 20px;
+    .navbar .logo {
+      font-size: 1.5rem;
       font-weight: bold;
-      color: white;
     }
 
-    .nav-links {
+    .navbar ul {
       display: flex;
-      gap: 20px;
+      list-style: none;
+      gap: 1.5rem;
     }
 
-    .nav-links a {
+    .navbar ul li a {
       color: white;
       text-decoration: none;
-      font-weight: 500;
+      font-size: 1rem;
     }
 
-    .nav-links a:hover {
-      text-decoration: underline;
-    }
-
-    .search-form {
+    .navbar .nav-btns {
       display: flex;
       align-items: center;
-      margin-left: 600px;
+      gap: 1rem;
     }
 
-    .search-form input {
-        padding: 10px 15px;     /* Increases height */
-        width: 250px;           /* Increases width */
-        font-size: 16px;        /* Optional: increases text size */
-        border-radius: 4px;
-        border: none;
-        outline: none;
-      }
-      
-
-    .search-form button {
-      padding: 5px 10px;
-      margin-left: 10px;
-      background-color: #555;
-      color: white;
-      border: none;
-      border-radius: 5px;
-      cursor: pointer;
-    }
-
-    .search-form button:hover {
-      background-color: #777;
-    }
-
-    .user-menu {
-      position: relative;
-      display: flex;
-      align-items: center;
-    }
-
-    .user-avatar {
-      width: 40px;
-      height: 40px;
-      border-radius: 50%;
-      object-fit: cover;
-      cursor: pointer;
-    }
-
-    .dropdown {
-      position: absolute;
-      top: 50px;
-      right: 0;
+    .navbar .nav-btns button {
       background-color: white;
       color: black;
-      border-radius: 5px;
-      box-shadow: 0 0 10px rgba(0,0,0,0.3);
-      z-index: 1000;
-      display: none;
-      min-width: 150px;
+      border: none;
+      border-radius: 20px;
+      padding: 0.8rem 1.4rem;
+      font-size: 1rem;
+      cursor: pointer;
+      font-weight: bold;
     }
 
-    .dropdown a {
-      display: block;
-      padding: 10px 15px;
-      text-decoration: none;
-      color: black;
+    .hero {
+      text-align: center;
+      padding: 6rem 2rem 2rem 2rem;
     }
 
-    .dropdown a:hover {
-      background-color: #f0f0f0;
+    .hero h1 {
+      font-size: 3rem;
+      margin-bottom: 1rem;
     }
 
-    .main-container {
-      flex: 1;
-      padding: 20px;
+    .hero p {
+      font-size: 1.25rem;
+      color: #cccccc;
+      margin-bottom: 2rem;
     }
 
-    .content {
-      width: 100%;
+    .hero .cta-button {
+      background: linear-gradient(90deg, #7b2ff7, #f107a3);
+      color: white;
+      font-size: 1rem;
+      padding: 0.8rem 2rem;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: transform 0.3s ease;
+    }
+
+    .hero .cta-button:hover {
+      transform: scale(1.05);
+    }
+
+    .mockup-img {
+      display: flex;
+      justify-content: center;
+      margin-top: 3rem;
+    }
+
+    .mockup-img img {
+      max-width: 90%;
+      border-radius: 1rem;
+      box-shadow: 0 0 30px rgba(0,0,0,0.6);
+    }
+
+    .video-section {
+      display: flex;
+      justify-content: center;
+      margin: 3rem 2rem;
+    }
+
+    .video-section video {
+      width: 90%;
+      border-radius: 1rem;
+      box-shadow: 0 0 30px rgba(0,0,0,0.6);
     }
   </style>
 </head>
 <body>
-
-  <header class="navbar">
-    <div class="navbar-left">
-      <div class="logo"></div>
-      <nav class="nav-links">
-        <a href="#">Sign In</a>
-        <a href="#">About Us</a>
-        <a href="#">Blog</a>
-      </nav>
-
-      <!-- Search Bar -->
-      <form class="search-form" onsubmit="handleSearch(event)">
-        <input type="text" id="searchInput" placeholder="Search..." />
-        <button type="submit">Search</button>
-      </form>
+  <nav class="navbar">
+    <div class="logo">🚀 Knekt</div>
+    <ul>
+      <li><a href="#">Create Team</a></li>
+      <li><a href="#">Join Team</a></li>
+      <li><a href="#">Blogs</a></li>
+      <li><a href="#">Area of Details</a></li>
+      <li><a href="#">About us</a></li>
+    </ul>
+    <div class="nav-btns">
+      <a href="#" style="color:white;">Log in</a>
+      <button>Start for Free</button>
     </div>
+  </nav>
 
-    <div class="user-menu" id="userMenu">
-      <img src="user.png" alt="User" class="user-avatar" id="userAvatar" />
-      <div class="dropdown" id="dropdownMenu">
-        <a href="#">Dashboard</a>
-        <a href="#">Join Team</a>
-        <a href="#">Area of Interest</a>
-      </div>
+  <section class="hero">
+    <h1>Connect. Collaborate. Create.</h1>
+    <p>Knekt – Where Connections Create Opportunities</p>
+    <button class="cta-button">Start for Free</button>
+
+    <div class="mockup-img">
+      <img src="logo.png" alt="Mockup" />
     </div>
-  </header>
+  </section>
 
-  <div class="main-container">
-    <div class="content">
-      <h2>Welcome to your Home Page</h2>
-      <p>This is your main content area.</p>
-    </div>
-  </div>
-
-  <script>
-    const userMenu = document.getElementById('userMenu');
-    const dropdownMenu = document.getElementById('dropdownMenu');
-
-    userMenu.addEventListener('mouseenter', () => {
-      dropdownMenu.style.display = 'block';
-    });
-
-    userMenu.addEventListener('mouseleave', () => {
-      dropdownMenu.style.display = 'none';
-    });
-
-    function handleSearch(e) {
-      e.preventDefault();
-      const query = document.getElementById('searchInput').value.trim();
-      if (query) {
-        alert("Searching for: " + query);
-      } else {
-        alert("Please enter a search term.");
-      }
-    }
-  </script>
-
+  <!-- Video Section -->
+  <section class="video-section">
+    <video autoplay muted loop playsinline>
+      <source src="preview.mp4" type="video/mp4" />
+      Your browser does not support the video tag.
+    </video>
+  </section>
 </body>
 </html>
