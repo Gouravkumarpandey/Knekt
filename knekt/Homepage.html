@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Home Page</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      display: flex;
+      flex-direction: column;
+      height: 100vh;
+    }
+
+    .navbar {
+      background-color: #333;
+      color: white;
+      padding: 15px 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: relative;
+    }
+
+    .navbar-left {
+      display: flex;
+      align-items: center;
+      gap: 30px;
+    }
+
+    .logo {
+      font-size: 20px;
+      font-weight: bold;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 20px;
+    }
+
+    .nav-links a {
+      color: white;
+      text-decoration: none;
+      font-weight: 500;
+    }
+
+    .user-menu {
+      position: relative;
+    }
+
+    .user-avatar {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      object-fit: cover;
+      cursor: pointer;
+    }
+
+    .dropdown {
+      display: none;
+      position: absolute;
+      top: 50px;
+      right: 0;
+      background-color: white;
+      color: black;
+      border-radius: 5px;
+      overflow: hidden;
+      box-shadow: 0 0 10px rgba(0,0,0,0.3);
+      z-index: 1000;
+    }
+
+    .dropdown a {
+      display: block;
+      padding: 10px 15px;
+      text-decoration: none;
+      color: black;
+    }
+
+    .dropdown a:hover {
+      background-color: #f0f0f0;
+    }
+
+    .main-container {
+      display: flex;
+      flex: 1;
+    }
+
+    .left-panel {
+      width: 250px;
+      background-color: #6a0dad;
+      color: white;
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .left-panel img {
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+      object-fit: cover;
+      margin-bottom: 20px;
+    }
+
+    .sidebar {
+      width: 100%;
+    }
+
+    .sidebar a {
+      display: block;
+      color: white;
+      text-decoration: none;
+      padding: 10px;
+      margin: 5px 0;
+      background-color: grey;
+      border-radius: 5px;
+      text-align: center;
+    }
+
+    .sidebar a:hover {
+      background-color: darkgrey;
+    }
+
+    .content {
+      flex: 1;
+      padding: 20px;
+    }
+
+    @media (max-width: 768px) {
+      .nav-links {
+        display: none;
+      }
+
+      .navbar-left {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header class="navbar">
+    <div class="navbar-left">
+      <div class="logo">MyDashboard</div>
+      <nav class="nav-links">
+        <a href="#">Sign In</a>
+        <a href="#">About Us</a>
+        <a href="#">Blog</a>
+      </nav>
+    </div>
+    <div class="user-menu" id="userMenu">
+      <img src="https://via.placeholder.com/40" alt="User" class="user-avatar" id="userAvatar" />
+      <div class="dropdown" id="dropdownMenu">
+        <a href="#">Create Team</a>
+        <a href="#">Join Team</a>
+        <a href="#">Area of Interest</a>
+      </div>
+    </div>
+  </header>
+
+  <div class="main-container">
+    <div class="left-panel">
+      <img src="https://via.placeholder.com/100" alt="User Image" />
+      <div class="sidebar">
+        <a href="#">Dashboard</a>
+        <a href="#">Profile</a>
+        <a href="#">Settings</a>
+        <a href="#">Logout</a>
+      </div>
+    </div>
+
+    <div class="content">
+      <h2>Welcome to your Home Page</h2>
+      <p>This is your main content area.</p>
+    </div>
+  </div>
+
+  <script>
+    const userAvatar = document.getElementById("userAvatar");
+    const dropdownMenu = document.getElementById("dropdownMenu");
+
+    userAvatar.addEventListener("click", () => {
+      dropdownMenu.style.display = dropdownMenu.style.display === "block" ? "none" : "block";
+    });
+
+    // Close dropdown if clicked outside
+    window.addEventListener("click", (e) => {
+      if (!document.getElementById("userMenu").contains(e.target)) {
+        dropdownMenu.style.display = "none";
+      }
+    });
+  </script>
+
+</body>
+</html>
