@@ -21,11 +21,10 @@
     .navbar {
       background-color: #333;
       color: white;
-      padding: 15px 20px;
+      padding: 15px 30px;
       display: flex;
       justify-content: space-between;
       align-items: center;
-      position: relative;
     }
 
     .navbar-left {
@@ -37,6 +36,7 @@
     .logo {
       font-size: 20px;
       font-weight: bold;
+      color: white;
     }
 
     .nav-links {
@@ -50,8 +50,44 @@
       font-weight: 500;
     }
 
+    .nav-links a:hover {
+      text-decoration: underline;
+    }
+
+    .search-form {
+      display: flex;
+      align-items: center;
+      margin-left: 600px;
+    }
+
+    .search-form input {
+        padding: 10px 15px;     /* Increases height */
+        width: 250px;           /* Increases width */
+        font-size: 16px;        /* Optional: increases text size */
+        border-radius: 4px;
+        border: none;
+        outline: none;
+      }
+      
+
+    .search-form button {
+      padding: 5px 10px;
+      margin-left: 10px;
+      background-color: #555;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    .search-form button:hover {
+      background-color: #777;
+    }
+
     .user-menu {
       position: relative;
+      display: flex;
+      align-items: center;
     }
 
     .user-avatar {
@@ -63,16 +99,16 @@
     }
 
     .dropdown {
-      display: none;
       position: absolute;
       top: 50px;
       right: 0;
       background-color: white;
       color: black;
       border-radius: 5px;
-      overflow: hidden;
       box-shadow: 0 0 10px rgba(0,0,0,0.3);
       z-index: 1000;
+      display: none;
+      min-width: 150px;
     }
 
     .dropdown a {
@@ -87,61 +123,12 @@
     }
 
     .main-container {
-      display: flex;
       flex: 1;
-    }
-
-    .left-panel {
-      width: 250px;
-      background-color: #6a0dad;
-      color: white;
       padding: 20px;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-    }
-
-    .left-panel img {
-      width: 100px;
-      height: 100px;
-      border-radius: 50%;
-      object-fit: cover;
-      margin-bottom: 20px;
-    }
-
-    .sidebar {
-      width: 100%;
-    }
-
-    .sidebar a {
-      display: block;
-      color: white;
-      text-decoration: none;
-      padding: 10px;
-      margin: 5px 0;
-      background-color: grey;
-      border-radius: 5px;
-      text-align: center;
-    }
-
-    .sidebar a:hover {
-      background-color: darkgrey;
     }
 
     .content {
-      flex: 1;
-      padding: 20px;
-    }
-
-    @media (max-width: 768px) {
-      .nav-links {
-        display: none;
-      }
-
-      .navbar-left {
-        flex-direction: column;
-        align-items: flex-start;
-      }
+      width: 100%;
     }
   </style>
 </head>
@@ -149,17 +136,24 @@
 
   <header class="navbar">
     <div class="navbar-left">
-      <div class="logo">MyDashboard</div>
+      <div class="logo"></div>
       <nav class="nav-links">
         <a href="#">Sign In</a>
         <a href="#">About Us</a>
         <a href="#">Blog</a>
       </nav>
+
+      <!-- Search Bar -->
+      <form class="search-form" onsubmit="handleSearch(event)">
+        <input type="text" id="searchInput" placeholder="Search..." />
+        <button type="submit">Search</button>
+      </form>
     </div>
+
     <div class="user-menu" id="userMenu">
-      <img src="https://via.placeholder.com/40" alt="User" class="user-avatar" id="userAvatar" />
+      <img src="user.png" alt="User" class="user-avatar" id="userAvatar" />
       <div class="dropdown" id="dropdownMenu">
-        <a href="#">Create Team</a>
+        <a href="#">Dashboard</a>
         <a href="#">Join Team</a>
         <a href="#">Area of Interest</a>
       </div>
@@ -167,16 +161,6 @@
   </header>
 
   <div class="main-container">
-    <div class="left-panel">
-      <img src="https://via.placeholder.com/100" alt="User Image" />
-      <div class="sidebar">
-        <a href="#">Dashboard</a>
-        <a href="#">Profile</a>
-        <a href="#">Settings</a>
-        <a href="#">Logout</a>
-      </div>
-    </div>
-
     <div class="content">
       <h2>Welcome to your Home Page</h2>
       <p>This is your main content area.</p>
@@ -184,19 +168,26 @@
   </div>
 
   <script>
-    const userAvatar = document.getElementById("userAvatar");
-    const dropdownMenu = document.getElementById("dropdownMenu");
+    const userMenu = document.getElementById('userMenu');
+    const dropdownMenu = document.getElementById('dropdownMenu');
 
-    userAvatar.addEventListener("click", () => {
-      dropdownMenu.style.display = dropdownMenu.style.display === "block" ? "none" : "block";
+    userMenu.addEventListener('mouseenter', () => {
+      dropdownMenu.style.display = 'block';
     });
 
-    // Close dropdown if clicked outside
-    window.addEventListener("click", (e) => {
-      if (!document.getElementById("userMenu").contains(e.target)) {
-        dropdownMenu.style.display = "none";
+    userMenu.addEventListener('mouseleave', () => {
+      dropdownMenu.style.display = 'none';
+    });
+
+    function handleSearch(e) {
+      e.preventDefault();
+      const query = document.getElementById('searchInput').value.trim();
+      if (query) {
+        alert("Searching for: " + query);
+      } else {
+        alert("Please enter a search term.");
       }
-    });
+    }
   </script>
 
 </body>
