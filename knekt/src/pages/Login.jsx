@@ -1,29 +1,51 @@
+import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
-import { useState } from 'react';
-
-export default function Login() {
-  const navigate = useNavigate();
+const Login = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const navigate = useNavigate();
 
   const handleLogin = (e) => {
     e.preventDefault();
-    // You can add auth logic here
-    console.log({ email, password });
+
+    // Dummy check (you can replace this with real API logic)
+    if (email === 'test@example.com' && password === '123456') {
+      alert('Login successful!');
+      navigate('/dashboard'); // Navigate to dashboard or homepage
+    } else {
+      alert('Invalid credentials');
+    }
   };
 
   return (
-    <div className="login-page">
+    <div style={styles.container}>
       <h2>Login</h2>
-      <form onSubmit={handleLogin}>
-        <input type="email" placeholder="Email" onChange={e => setEmail(e.target.value)} required />
-        <input type="password" placeholder="Password" onChange={e => setPassword(e.target.value)} required />
-        <button type="submit">Login</button>
+      <form onSubmit={handleLogin} style={styles.form}>
+        <input
+          type="email"
+          placeholder="Email"
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
+          required
+          style={styles.input}
+        />
+        <input
+          type="password"
+          placeholder="Password"
+          value={password}
+          onChange={(e) => setPassword(e.target.value)}
+          required
+          style={styles.input}
+        />
+        <button type="submit" style={styles.button}>Login</button>
+        <p>
+          Don't have an account? <a href="/register">Create Account</a>
+        </p>
       </form>
-      <p>
-        Don't have an account? <span style={{ color: 'blue', cursor: 'pointer' }} onClick={() => navigate('/register')}>Create Account</span>
-      </p>
     </div>
   );
-}
+};
+
+
+export default Login;
