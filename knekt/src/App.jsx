@@ -15,6 +15,8 @@ function App() {
         <Route path="/register" element={<Register />} />
         <Route path="/profile" element={<Profile />} />
         <Route path="/projects" element={<Projects />} />
+        <Route path="/projects/:id" element={<Projects />} />
+        
         {/* Add more routes as needed */}
 
       </Routes>
