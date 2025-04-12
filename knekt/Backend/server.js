@@ -1,35 +1,17 @@
-const express = require("express");
-const mongoose = require("mongoose");
-const dotenv = require("dotenv");
-const cors = require("cors");
-
-dotenv.config(); // Load environment variables from .env
-
+// Import required modules
+const express = require('express');
 const app = express();
-const PORT = process.env.PORT || 5000;
+const port = ;
 
-// Middleware
-app.use(cors());
+// Middleware to parse JSON requests
 app.use(express.json());
 
-// Connect to MongoDB
-mongoose.connect(process.env.MONGO_URI, {
-  useNewUrlParser: true,
-  useUnifiedTopology: true,
-})
-.then(() => {
-  console.log("✅ Connected to MongoDB Atlas");
-})
-.catch((error) => {
-  console.error("❌ MongoDB connection error:", error);
+// Sample route for the home page
+app.get('/', (req, res) => {
+  res.send('Hello, World!');
 });
 
-// Sample route
-app.get("/", (req, res) => {
-  res.send("🚀 Knekt API is running!");
-});
-
-// Start server
-app.listen(PORT, () => {
-  console.log(`🚀 Server running on port ${PORT}`);
+// Start the server
+app.listen(port, () => {
+  console.log(`Server is running on http://localhost:${port}`);
 });
