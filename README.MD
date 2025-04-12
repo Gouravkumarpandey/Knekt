@@ -1,17 +1,30 @@
 
 # Knekt
 
-A modern project management solution designed to connect teams and streamline workflows.
+A modern project management solution designed to connect teams and streamline workflows. Knekt is an innovative EdTech platform that combines collaborative skill development with efficient project management tools.
+
+## Overview
+
+Knekt serves as a comprehensive learning and collaboration platform that:
+- Facilitates skill-based team formation and project matching
+- Enables real-time collaboration between students, educators, and industry professionals
+- Provides structured learning paths integrated with project workflows
+- Tracks skill development and learning outcomes through project completion
 
 ## Features
 
-- Task Management
-- Team Collaboration
-- Project Timeline Visualization
-- Resource Allocation
-- Real-time Updates
+// ...existing code for features...
 
-## Getting Started
+## Educational Features
+
+- Skill Assessment & Tracking
+- Learning Path Integration
+- Peer-to-Peer Learning
+- Industry Expert Mentorship
+- Portfolio Building
+- Performance Analytics
+
+// ...rest of existing code...
 
 ### Prerequisites
 
